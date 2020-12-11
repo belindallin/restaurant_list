@@ -8,17 +8,29 @@
 - 點擊餐廳圖片，顯示餐廳詳細資訊　ex:電話、地址、型態
 
 ## Install 安裝與執行步驟
-###以下指令請在終端機操作
+### 以下指令請在終端機操作
 1. Clone此專案至本機
-https://github.com/belindallin/restaurant_list.git
+```
+git clone https://github.com/belindallin/restaurant_list.git
+```
 2. 進入存放專案的資料夾
+```
 cd restaurant_list
+```
 3. 安裝npm套件
+```
 npm install
+```
 4. 安裝nodemon
+```
 npm i -g nodemon
+```
 5. 啟動伺服器，執行app.js
+```
 nodemon app.js
+```
 6. 此時終端機出現以下字樣表示伺服器與資料庫已啟動並成功連結
+```
 Resaurant Web is running on http://localhost:3000
+```
 7. 在瀏覽器輸入http://localhost:3000 即可開啟專案
