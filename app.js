@@ -18,12 +18,12 @@ app.get ( '/' , ( req , res ) => {
     res.render ( 'index', { restaurants : restaurant_list.results } )
 })
 app.get ( '/restaurants/:restaurant_id' , ( req , res ) => {
-    const restaurant= restaurant_list.results.filter ( restaurant => restaurant.id.toString() === req.params.restaurant_id)
-    res.render ( 'show', { restaurant: restaurant [0] } )
+    const restaurant= restaurant_list.results.find ( restaurant => restaurant.id.toString() === req.params.restaurant_id)
+    res.render ( 'show', { restaurant: restaurant } )
 })
 app.get ( '/search' , ( req , res ) => {
     const keyword = req.query.keyword
-    const restaurants = restaurant_list.results.filter ( restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase()) )   
+    const restaurants = restaurant_list.results.filter ( restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase().trim()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase().trim()) )   
     res.render ( 'index', { restaurants: restaurants , keywords :  req.query.keyword } )
 })
 
