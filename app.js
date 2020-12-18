@@ -3,7 +3,7 @@ const express = require ( 'express' )
 //load express-handlebars
 const exphbs = require ( 'express-handlebars' )
 //load restaurant
-const restaurant_list = require ( './restaurant.json' )
+const Restaurant = require ( './models/restaurant' )
 //load mongoose
 const mongoose = require ( 'mongoose' )
 
@@ -26,7 +26,10 @@ db.once ( 'open' , () => {
 
 //get data by client and response to client
 app.get ( '/' , ( req , res ) => {
-    res.render ( 'index', { restaurants : restaurant_list.results } )
+    Restaurant.find()
+    .lean()
+    .then ( restaurants => res.render ( 'index', { restaurants }) )
+    .catch ( error => console.log ( error ) )    
 })
 app.get ( '/restaurants/:restaurant_id' , ( req , res ) => {
     const restaurant= restaurant_list.results.find ( restaurant => restaurant.id.toString() === req.params.restaurant_id)
