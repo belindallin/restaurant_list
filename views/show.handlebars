@@ -3,8 +3,14 @@
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
 
-      <p class="mb-1">
-        <span class="text-secondary">
+      <p class="mb-1" >
+        <button type="button" class="btn btn-warning">
+          <a href="/restaurants/{{restaurant._id}}/edit" class="mr-2" >Edit</a>
+        </button> 
+        <form action="./restaurants/{{ restaurant._id }}/delete" method="POST">
+          <button type="submit"class="btn btn-dark">delete</button>
+        </form>       
+        <span class="text-secondary ">
           <i class="fas fa-utensils pr-2"></i>
           類別：
         </span>
