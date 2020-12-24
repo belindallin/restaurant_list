@@ -71,6 +71,7 @@ app.get ( '/restaurants/:id/edit' , ( req , res ) => {
 })
 
 app.post ( '/restaurants/:id/edit' , ( req , res ) => {
+    console.log ( req.body )
     const id = req.params.id
     const name = req.body.name     
     const name_en = req.body.name_en  
@@ -82,7 +83,7 @@ app.post ( '/restaurants/:id/edit' , ( req , res ) => {
     const rating  = req.body.rating  
     const description = req.body.description 
     
-    return Restaurant.findById('id')
+    return Restaurant.findById ( id )
         .then ( restaurant => {
             restaurant.name = name
             restaurant.name_en = name_en 
@@ -93,9 +94,9 @@ app.post ( '/restaurants/:id/edit' , ( req , res ) => {
             restaurant.google_map = google_map 
             restaurant.rating = rating 
             restaurant.description = description
-            return Restaurant.save()
+            return restaurant.save()
         })
-        .then(() => res.redirect('/restaurants/${id}')) 
+        .then(() => res.redirect(`/restaurants/${id}`)) 
         .catch(error => console.log(error))
 })
 app.post('/restaurants/:id/delete', (req, res) => {
