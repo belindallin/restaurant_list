@@ -3,7 +3,7 @@ const express = require ( 'express' )
 //load express-handlebars
 const exphbs = require ( 'express-handlebars' )
 //load restaurant
-const Restaurant = require ( './models/restaurant' )
+const Restaurant = require ( './models/restaurant.js' )
 //load mongoose
 const mongoose = require ( 'mongoose' )
 //load body-parser
